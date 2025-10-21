@@ -1,0 +1,81 @@
+@use 'variables.scss' as *;
+
+:root {
+  font-family: $font-family;
+  line-height: $line-height;
+  font-weight: $font-weight-normal;
+
+  color-scheme: $color-scheme;
+  color: $text-color-dark;
+  background-color: $bg-color-dark;
+
+  font-synthesis: $font-synthesis;
+  text-rendering: $text-rendering;
+  -webkit-font-smoothing: $webkit-smoothing;
+  -moz-osx-font-smoothing: $moz-smoothing;
+}
+
+a {
+  font-weight: 500;
+  color: $primary-color;
+  text-decoration: inherit;
+}
+a:hover {
+  color: $primary-hover;
+}
+
+body {
+  margin: $body-margin;
+  display: $body-display;
+  place-items: $body-place-items;
+  min-width: $body-min-width;
+  min-height: $body-min-height;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+}
+
+button {
+  border-radius: $border-radius;
+  border: $button-border;
+  padding: $button-padding;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  font-family: inherit;
+  background-color: $button-bg-dark;
+  cursor: $button-cursor;
+  transition: border-color $transition-speed;
+}
+button:hover {
+  border-color: $primary-color;
+}
+button:focus,
+button:focus-visible {
+  outline: $button-focus-outline;
+}
+
+.card {
+  padding: $card-padding;
+}
+
+#app {
+  max-width: $app-max-width;
+  margin: $app-margin;
+  padding: $app-padding;
+  text-align: $app-text-align;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: $light-text;
+    background-color: $light-bg;
+  }
+  a:hover {
+    color: $primary-light-hover;
+  }
+  button {
+    background-color: $button-bg-light;
+  }
+}

@@ -17,17 +17,19 @@ const homepage = __APP_HOMEPAGE__
         &copy; {{ currentYear }} RAG-TS v{{ version }}. {{ t('footer.rights') }}
       </p>
       
-      <ul class="app-footer__links">
-        <li>
-          <router-link to="/privacy" class="app-footer__link">{{ t('footer.privacy') }}</router-link>
-        </li>
-        <li>
-          <router-link to="/terms" class="app-footer__link">{{ t('footer.terms') }}</router-link>
-        </li>
-        <li>
-          <router-link to="/about" class="app-footer__link">{{ t('footer.about') }}</router-link>
-        </li>
-      </ul>
+      <nav aria-label="Footer navigation">
+        <ul class="app-footer__links">
+          <li>
+            <router-link to="/privacy" class="app-footer__link">{{ t('footer.privacy') }}</router-link>
+          </li>
+          <li>
+            <router-link to="/terms" class="app-footer__link">{{ t('footer.terms') }}</router-link>
+          </li>
+          <li>
+            <router-link to="/about" class="app-footer__link">{{ t('footer.about') }}</router-link>
+          </li>
+        </ul>
+      </nav>
     </div>
 
     <div class="app-footer__social">

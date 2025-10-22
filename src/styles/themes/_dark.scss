@@ -3,7 +3,7 @@
 // Force dark theme (can be applied via [data-theme="dark"])
 :root[data-theme="dark"] {
   --text-color: #{$dark-text-color};
-  --text-muted: oklch(65% 0 0);
+  --text-muted: oklch(70% 0 0);
   --bg-color: #{$dark-bg-color};
   --card-bg: oklch(25% 0 0);
   --border-color: oklch(35% 0 0);

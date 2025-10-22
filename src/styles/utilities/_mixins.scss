@@ -38,12 +38,24 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
   gap: $gap;
+  
+  @supports not (gap: 1rem) {
+    > * + * {
+      margin-left: $gap;
+    }
+  }
 }
 
 @mixin grid-auto-fill($min-width: 250px, $gap: 1rem) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
   gap: $gap;
+  
+  @supports not (gap: 1rem) {
+    > * + * {
+      margin-left: $gap;
+    }
+  }
 }
 
 // Container utilities

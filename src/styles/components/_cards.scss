@@ -117,13 +117,23 @@
 
 // Alternative: Auto-fit grid
 .cards-grid--auto {
-  @include grid-auto-fit(280px, $grid-gap-mobile);
+  @include grid-auto-fill(280px, $grid-gap-mobile);
   
   @include respond-from(tablet) {
-    @include grid-auto-fit(300px, $grid-gap-tablet);
+    @include grid-auto-fill(300px, $grid-gap-tablet);
   }
   
   @include respond-from(desktop) {
-    @include grid-auto-fit(320px, $grid-gap-desktop);
+    @include grid-auto-fill(320px, $grid-gap-desktop);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+  
+  .data-card {
+    transition: none;
   }
 }

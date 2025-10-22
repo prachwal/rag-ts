@@ -4,7 +4,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --text-color: #{$light-text-color};
-    --text-muted: oklch(60% 0 0);
+    --text-muted: oklch(45% 0 0);
     --bg-color: #{$light-bg-color};
     --card-bg: oklch(98% 0 0);
     --border-color: oklch(85% 0 0);
@@ -21,7 +21,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #{$dark-text-color};
-    --text-muted: oklch(65% 0 0);
+    --text-muted: oklch(70% 0 0);
     --bg-color: #{$dark-bg-color};
     --card-bg: oklch(25% 0 0);
     --border-color: oklch(35% 0 0);

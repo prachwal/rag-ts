@@ -12,11 +12,12 @@
     top: $header-height-mobile;
     left: 0;
     width: $sidebar-width-mobile;
-    height: calc(100vh - #{$header-height-mobile});
+    min-height: calc(100vh - #{$header-height-mobile});
     transform: translateX(-100%);
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
     z-index: $z-index-sidebar;
     overflow-y: auto;
+    will-change: transform;
     
     &--open {
       transform: translateX(0);
@@ -27,7 +28,7 @@
   @include respond-from(desktop) {
     position: sticky;
     top: $header-height-desktop;
-    height: calc(100vh - #{$header-height-desktop});
+    min-height: calc(100vh - #{$header-height-desktop});
     overflow-y: auto;
     border-right: 1px solid var(--border-color, oklch(85% 0 0));
   }
@@ -72,8 +73,8 @@
   }
   
   svg {
-    width: 20px;
-    height: 20px;
+    width: 1.25em;
+    height: 1.25em;
     flex-shrink: 0;
   }
 }
@@ -116,5 +117,11 @@
       z-index: calc(#{$z-index-sidebar} - 1);
       cursor: pointer;
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-sidebar {
+    transition: none;
   }
 }

@@ -4,7 +4,7 @@
 
 .app-header {
   @include flex-between;
-  height: $header-height-mobile;
+  min-height: $header-height-mobile;
   padding: 0 $container-padding-mobile;
   background-color: var(--bg-color);
   border-bottom: 1px solid var(--border-color, oklch(85% 0 0));
@@ -15,7 +15,7 @@
   }
   
   @include respond-from(desktop) {
-    height: $header-height-desktop;
+    min-height: $header-height-desktop;
     padding: 0 $container-padding-desktop;
   }
 }
@@ -39,12 +39,12 @@
 }
 
 .app-header__logo {
-  width: 32px;
-  height: 32px;
+  width: 1.5em;
+  height: 1.5em;
   
   @include respond-from(desktop) {
-    width: 40px;
-    height: 40px;
+    width: 2em;
+    height: 2em;
   }
 }
 
@@ -74,8 +74,8 @@
   }
   
   svg {
-    width: 24px;
-    height: 24px;
+    width: 1.5em;
+    height: 1.5em;
   }
 }
 
@@ -106,9 +106,32 @@
     color: var(--primary-color);
     background-color: var(--card-bg, oklch(95% 0 0));
   }
+  
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
 }
 
 .app-header__actions {
   @include flex-center;
   gap: $gap-sm;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-header {
+    transition: none;
+  }
+  
+  .app-header__brand {
+    transition: none;
+  }
+  
+  .app-header__nav-link {
+    transition: none;
+  }
+  
+  .app-header__menu-toggle {
+    transition: none;
+  }
 }

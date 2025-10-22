@@ -20,6 +20,14 @@ export default {
     dark: 'Dark',
     system: 'System'
   },
+  languages: {
+    en: 'English',
+    pl: 'Polski'
+  },
+  current: {
+    theme: 'Current theme:',
+    language: 'Current language:'
+  },
   home: {
     title: 'Welcome to RAG-TS',
     subtitle: 'Modern Vue 3 application with TypeScript',
@@ -42,6 +50,7 @@ export default {
     feature3: 'Pinia for state management',
     feature4: 'Vue i18n for internationalization',
     feature5: 'Theme switcher (light/dark/system)',
-    feature6: 'TypeScript for type safety'
+    feature6: 'TypeScript for type safety',
+    feature7: 'Language switcher (Polish/English)'
   }
 }

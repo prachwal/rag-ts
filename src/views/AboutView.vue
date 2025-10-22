@@ -10,7 +10,8 @@ const features = [
   'feature3',
   'feature4',
   'feature5',
-  'feature6'
+  'feature6',
+  'feature7'
 ]
 </script>
 
@@ -30,15 +31,39 @@ const features = [
     <section class="page-section">
       <h2 class="page-section__title">{{ t('about.features') }}</h2>
       
-      <ul style="display: flex; flex-direction: column; gap: 1rem; padding-left: 1.5rem;">
-        <li 
-          v-for="feature in features" 
-          :key="feature"
-          style="font-size: 1rem; line-height: 1.6; color: var(--text-color);"
-        >
-          {{ t(`about.${feature}`) }}
-        </li>
-      </ul>
+      <div style="
+        padding: 2rem;
+        background-color: var(--card-bg, oklch(98% 0 0));
+        border-radius: 8px;
+        border: 1px solid var(--border-color, oklch(90% 0 0));
+      ">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+          <div 
+            v-for="feature in features" 
+            :key="feature"
+            style="
+              padding: 1rem;
+              background-color: var(--bg-color);
+              border-radius: 6px;
+              border: 1px solid var(--border-color);
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+            "
+          >
+            <div style="
+              width: 8px;
+              height: 8px;
+              background-color: var(--primary-color);
+              border-radius: 50%;
+              flex-shrink: 0;
+            "></div>
+            <span style="font-size: 0.95rem; line-height: 1.5; color: var(--text-color);">
+              {{ t(`about.${feature}`) }}
+            </span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="page-section">

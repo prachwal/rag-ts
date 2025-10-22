@@ -33,7 +33,7 @@ const toggleMobileMenu = () => {
     </nav>
 
     <div class="app-header__actions">
-      <ThemeSwitcher />
+      <ThemeSwitcher mode="switch" :showText="false" />
       
       <button
         class="app-header__menu-toggle"

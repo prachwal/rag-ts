@@ -52,5 +52,28 @@ export default {
     feature5: 'Przełącznik motywów (jasny/ciemny/systemowy)',
     feature6: 'TypeScript dla bezpieczeństwa typów',
     feature7: 'Przełącznik języka (polski/angielski)'
+  },
+  privacy: {
+    title: 'Polityka Prywatności',
+    subtitle: 'Jak chronimy Twoje dane',
+    description: 'Ta polityka prywatności wyjaśnia, jak zbieramy, wykorzystujemy i chronimy Twoje dane osobowe.',
+    dataCollection: 'Zbieranie Danych',
+    dataCollectionText: 'Zbieramy minimalne dane osobowe niezbędne do świadczenia naszych usług. Może to obejmować Twoje preferencje językowe i ustawienia motywu, które są przechowywane lokalnie w Twojej przeglądarce.',
+    dataUsage: 'Wykorzystanie Danych',
+    dataUsageText: 'Twoje dane są wykorzystywane wyłącznie w celu poprawy Twojego doświadczenia z naszą aplikacją. Nie udostępniamy, nie sprzedajemy ani nie rozpowszechniamy Twoich danych osobowych stronom trzecim.',
+    contact: 'Kontakt',
+    contactText: 'Jeśli masz jakiekolwiek pytania dotyczące tej polityki prywatności, skontaktuj się z nami przez nasze repozytorium GitHub.'
+  },
+  terms: {
+    title: 'Regulamin',
+    subtitle: 'Zasady i warunki korzystania z aplikacji',
+    acceptance: 'Akceptacja Warunków',
+    acceptanceText: 'Dostęp do tej aplikacji i jej używanie oznacza akceptację i zgodę na przestrzeganie warunków niniejszej umowy.',
+    useLicense: 'Licencja Użytkowania',
+    useLicenseText: 'Udziela się pozwolenia na tymczasowe korzystanie z tej aplikacji wyłącznie do osobistego, niekomercyjnego, przejściowego przeglądania.',
+    disclaimer: 'Zrzeczenie się Odpowiedzialności',
+    disclaimerText: 'Materiały w tej aplikacji są dostarczane w stanie \'jak jest\'. Nie składamy żadnych gwarancji, wyraźnych ani dorozumianych.',
+    limitations: 'Ograniczenia',
+    limitationsText: 'W żadnym przypadku nie ponosimy odpowiedzialności za jakiekolwiek szkody wynikające z używania lub niemożności używania tej aplikacji.'
   }
 }

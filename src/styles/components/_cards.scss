@@ -1,5 +1,129 @@
 @use '../variables' as *;
+@use '../responsive/media-queries' as *;
+@use '../utilities/mixins' as *;
 
+// Basic card
 .card {
   padding: $card-padding;
+  background-color: var(--card-bg, oklch(98% 0 0));
+  border-radius: $border-radius;
+  @include transition(all);
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Data card - Mobile First
+.data-card {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-md;
+  padding: $gap-lg;
+  background-color: var(--card-bg, oklch(98% 0 0));
+  border-radius: $border-radius;
+  border: 1px solid var(--border-color, oklch(90% 0 0));
+  @include transition(all);
+  
+  @include respond-from(tablet) {
+    padding: $gap-xl;
+  }
+  
+  &:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.data-card__header {
+  @include flex-between;
+  gap: $gap-sm;
+}
+
+.data-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+  
+  @include respond-from(tablet) {
+    font-size: 1.25rem;
+  }
+}
+
+.data-card__badge {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: $border-radius-sm;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.data-card__content {
+  @include flex-column;
+  gap: $gap-sm;
+  font-size: 0.875rem;
+  color: var(--text-muted, oklch(60% 0 0));
+  
+  @include respond-from(tablet) {
+    font-size: 1rem;
+  }
+}
+
+.data-card__footer {
+  @include flex-between;
+  gap: $gap-sm;
+  padding-top: $gap-md;
+  border-top: 1px solid var(--border-color, oklch(90% 0 0));
+}
+
+.data-card__meta {
+  font-size: 0.75rem;
+  color: var(--text-muted, oklch(60% 0 0));
+  
+  @include respond-from(tablet) {
+    font-size: 0.875rem;
+  }
+}
+
+// Cards grid container - Mobile First
+.cards-grid {
+  display: grid;
+  gap: $grid-gap-mobile;
+  // Mobile: 1 column
+  grid-template-columns: 1fr;
+  
+  // Tablet: 2 columns
+  @include respond-from(tablet) {
+    gap: $grid-gap-tablet;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  // Desktop: 3 columns
+  @include respond-from(desktop) {
+    gap: $grid-gap-desktop;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  // Wide: Can be 4 columns if needed
+  @include respond-from(wide) {
+    &--wide {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+// Alternative: Auto-fit grid
+.cards-grid--auto {
+  @include grid-auto-fit(280px, $grid-gap-mobile);
+  
+  @include respond-from(tablet) {
+    @include grid-auto-fit(300px, $grid-gap-tablet);
+  }
+  
+  @include respond-from(desktop) {
+    @include grid-auto-fit(320px, $grid-gap-desktop);
+  }
 }

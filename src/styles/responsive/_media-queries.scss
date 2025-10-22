@@ -1,22 +1,69 @@
 @use './breakpoints' as *;
+@use 'sass:map';
 
-@mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+// Mobile-First: min-width (default)
+@mixin respond-from($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   }
+  @else {
+    @warn "Breakpoint #{$breakpoint} not found.";
+  }
 }
 
-// Usage example:
+// Max-width: for mobile-specific styles
+@mixin respond-below($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $bp-value: map.get($breakpoints, $breakpoint);
+    @media (max-width: calc(#{$bp-value} - 1px)) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Breakpoint #{$breakpoint} not found.";
+  }
+}
+
+// Between two breakpoints
+@mixin respond-between($breakpoint-min, $breakpoint-max) {
+  @if map.has-key($breakpoints, $breakpoint-min) and map.has-key($breakpoints, $breakpoint-max) {
+    $bp-min: map.get($breakpoints, $breakpoint-min);
+    $bp-max: map.get($breakpoints, $breakpoint-max);
+    @media (min-width: $bp-min) and (max-width: calc(#{$bp-max} - 1px)) {
+      @content;
+    }
+  }
+  @else {
+    @warn "One or both breakpoints not found.";
+  }
+}
+
+// Legacy alias (backwards compatibility)
+@mixin respond-to($breakpoint) {
+  @include respond-from($breakpoint) {
+    @content;
+  }
+}
+
+// Usage examples:
 // .container {
-//   width: 100%;
+//   width: 100%; // Mobile first (base)
 //
-//   @include respond-to(tablet) {
+//   @include respond-from(tablet) {
 //     width: 80%;
 //   }
 //
-//   @include respond-to(desktop) {
+//   @include respond-from(desktop) {
 //     width: 60%;
+//   }
+//
+//   @include respond-below(tablet) {
+//     padding: 1rem; // Only on mobile
+//   }
+//
+//   @include respond-between(tablet, desktop) {
+//     padding: 2rem; // Only on tablet
 //   }
 // }

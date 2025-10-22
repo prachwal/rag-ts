@@ -15,11 +15,16 @@
 
 // Layout
 @use 'layout/app';
+@use 'layout/layout';
 
 // Components
 @use 'components/buttons';
 @use 'components/cards';
 @use 'components/links';
+@use 'components/header';
+@use 'components/footer';
+@use 'components/sidebar';
+@use 'components/page';
 
 // Utilities (last for highest specificity)
 @use 'utilities/mixins';

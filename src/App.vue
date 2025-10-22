@@ -1,67 +1,43 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import ThemeSwitcher from './components/ThemeSwitcher.vue'
+import { computed } from 'vue'
+import { useAppStore } from './stores/app'
+import AppHeader from './components/layout/AppHeader.vue'
+import AppSidebar from './components/layout/AppSidebar.vue'
+import AppFooter from './components/layout/AppFooter.vue'
+
+const appStore = useAppStore()
+
+const isSidebarOpen = computed(() => appStore.isSidebarOpen)
+
+const handleToggleSidebar = () => {
+  appStore.toggleSidebar()
+}
+
+const handleCloseSidebar = () => {
+  appStore.closeSidebar()
+}
 </script>
 
 <template>
-  <div class="app-container">
-    <header class="app-header">
-      <ThemeSwitcher />
-    </header>
+  <div class="app-layout">
+    <AppHeader 
+      @toggle-sidebar="handleToggleSidebar"
+    />
     
-    <main>
-      <div class="logos">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://vuejs.org/" target="_blank">
-          <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-        </a>
-      </div>
-      <HelloWorld msg="Vite + Vue" />
+    <AppSidebar 
+      :is-open="isSidebarOpen"
+      @close="handleCloseSidebar"
+    />
+    
+    <main class="app-layout__main">
+      <router-view />
     </main>
+    
+    <AppFooter />
   </div>
 </template>
 
 <style scoped lang="scss">
-@use './styles/variables' as *;
-
-.app-container {
-  width: 100%;
-}
-
-.app-header {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1000;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.logos {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.logo {
-  height: $logo-size;
-  padding: $logo-padding;
-  will-change: filter;
-  transition: filter $transition-speed;
-
-  &:hover {
-    filter: $drop-shadow-primary;
-  }
-
-  &.vue:hover {
-    filter: $drop-shadow-vue;
-  }
-}
+// Layout styles are in src/styles/layout/_layout.scss
 </style>
+

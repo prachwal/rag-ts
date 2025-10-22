@@ -3,10 +3,15 @@
 // Force dark theme (can be applied via [data-theme="dark"])
 :root[data-theme="dark"] {
   --text-color: #{$dark-text-color};
+  --text-muted: oklch(65% 0 0);
   --bg-color: #{$dark-bg-color};
+  --card-bg: oklch(25% 0 0);
+  --border-color: oklch(35% 0 0);
   --button-bg: #{$dark-button-bg};
   --button-text: #{$dark-button-text};
   --primary-hover: #{$primary-hover-dark};
   --doc-link-color: #{$dark-doc-link};
   --code-bg: #{$dark-code-bg};
+  --success-color: #10b981;
+  --error-color: #ef4444;
 }

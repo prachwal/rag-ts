@@ -1,0 +1,114 @@
+@use '../variables' as *;
+@use '../responsive/media-queries' as *;
+@use '../utilities/mixins' as *;
+
+.app-header {
+  @include flex-between;
+  height: $header-height-mobile;
+  padding: 0 $container-padding-mobile;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color, oklch(85% 0 0));
+  @include transition(background-color);
+  
+  @include respond-from(tablet) {
+    padding: 0 $container-padding-tablet;
+  }
+  
+  @include respond-from(desktop) {
+    height: $header-height-desktop;
+    padding: 0 $container-padding-desktop;
+  }
+}
+
+.app-header__brand {
+  @include flex-center;
+  gap: $gap-sm;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-decoration: none;
+  @include transition(color);
+  
+  &:hover {
+    color: var(--primary-color);
+  }
+  
+  @include respond-from(desktop) {
+    font-size: 1.5rem;
+  }
+}
+
+.app-header__logo {
+  width: 32px;
+  height: 32px;
+  
+  @include respond-from(desktop) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.app-header__nav {
+  @include flex-center;
+  gap: $gap-md;
+  
+  @include respond-from(desktop) {
+    gap: $gap-lg;
+  }
+}
+
+// Mobile menu toggle button
+.app-header__menu-toggle {
+  @include reset-button;
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-color);
+  
+  @include respond-from(desktop) {
+    display: none; // Hide on desktop
+  }
+  
+  &:hover {
+    color: var(--primary-color);
+  }
+  
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// Desktop navigation
+.app-header__desktop-nav {
+  display: none;
+  
+  @include respond-from(desktop) {
+    @include flex-center;
+    gap: $gap-lg;
+  }
+}
+
+.app-header__nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: $border-radius-sm;
+  @include transition(all);
+  
+  &:hover {
+    color: var(--primary-color);
+    background-color: var(--card-bg, oklch(95% 0 0));
+  }
+  
+  &.router-link-active {
+    color: var(--primary-color);
+    background-color: var(--card-bg, oklch(95% 0 0));
+  }
+}
+
+.app-header__actions {
+  @include flex-center;
+  gap: $gap-sm;
+}

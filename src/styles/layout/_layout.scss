@@ -1,0 +1,94 @@
+@use '../variables' as *;
+@use '../responsive/media-queries' as *;
+@use '../utilities/mixins' as *;
+
+// Main layout grid - Mobile First
+.app-layout {
+  display: grid;
+  min-height: 100vh;
+  
+  // Mobile: Simple stack layout
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  grid-template-rows: $header-height-mobile 1fr auto;
+  grid-template-columns: 1fr;
+  
+  // Desktop: Add sidebar
+  @include respond-from(desktop) {
+    grid-template-areas:
+      'header header'
+      'sidebar main'
+      'footer footer';
+    grid-template-rows: $header-height-desktop 1fr auto;
+    grid-template-columns: $sidebar-width-desktop 1fr;
+  }
+  
+  // Wide: Larger sidebar
+  @include respond-from(wide) {
+    grid-template-columns: $sidebar-width-wide 1fr;
+  }
+}
+
+// Layout areas
+.app-layout__header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  z-index: $z-index-header;
+}
+
+.app-layout__sidebar {
+  grid-area: sidebar;
+  z-index: $z-index-sidebar;
+}
+
+.app-layout__main {
+  grid-area: main;
+  overflow-x: hidden;
+}
+
+.app-layout__footer {
+  grid-area: footer;
+}
+
+// Alternative: Flexbox layout (commented, use if needed)
+// .app-layout-flex {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh;
+//   
+//   @include respond-from(desktop) {
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//   }
+// }
+// 
+// .app-layout-flex__header {
+//   flex: 0 0 $header-height-mobile;
+//   
+//   @include respond-from(desktop) {
+//     flex: 0 0 100%;
+//     order: -1;
+//   }
+// }
+// 
+// .app-layout-flex__sidebar {
+//   @include respond-below(desktop) {
+//     display: none; // Hidden on mobile by default
+//   }
+//   
+//   @include respond-from(desktop) {
+//     flex: 0 0 $sidebar-width-desktop;
+//   }
+// }
+// 
+// .app-layout-flex__main {
+//   flex: 1 1 auto;
+// }
+// 
+// .app-layout-flex__footer {
+//   flex: 0 0 auto;
+//   width: 100%;
+// }

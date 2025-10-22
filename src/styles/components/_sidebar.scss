@@ -1,0 +1,120 @@
+@use '../variables' as *;
+@use '../responsive/media-queries' as *;
+@use '../utilities/mixins' as *;
+
+.app-sidebar {
+  background-color: var(--bg-color);
+  @include transition(transform);
+  
+  // Mobile: Offcanvas (drawer)
+  @include respond-below(desktop) {
+    position: fixed;
+    top: $header-height-mobile;
+    left: 0;
+    width: $sidebar-width-mobile;
+    height: calc(100vh - #{$header-height-mobile});
+    transform: translateX(-100%);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: $z-index-sidebar;
+    overflow-y: auto;
+    
+    &--open {
+      transform: translateX(0);
+    }
+  }
+  
+  // Desktop: Fixed sidebar
+  @include respond-from(desktop) {
+    position: sticky;
+    top: $header-height-desktop;
+    height: calc(100vh - #{$header-height-desktop});
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color, oklch(85% 0 0));
+  }
+}
+
+.app-sidebar__inner {
+  padding: $gap-lg $container-padding-mobile;
+  
+  @include respond-from(tablet) {
+    padding: $gap-lg $container-padding-tablet;
+  }
+  
+  @include respond-from(desktop) {
+    padding: $gap-xl $gap-lg;
+  }
+}
+
+.app-sidebar__nav {
+  @include reset-list;
+  @include flex-column;
+  gap: $gap-xs;
+}
+
+.app-sidebar__nav-link {
+  display: flex;
+  align-items: center;
+  gap: $gap-sm;
+  padding: 0.75rem 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: $border-radius;
+  @include transition(all);
+  
+  &:hover {
+    background-color: var(--card-bg, oklch(95% 0 0));
+    color: var(--primary-color);
+  }
+  
+  &.router-link-active {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+}
+
+.app-sidebar__nav-text {
+  font-weight: 500;
+}
+
+.app-sidebar__section {
+  margin-top: $gap-xl;
+  
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.app-sidebar__section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted, oklch(60% 0 0));
+  margin-bottom: $gap-sm;
+  padding: 0 1rem;
+}
+
+// Overlay for mobile when sidebar is open
+.app-sidebar-overlay {
+  display: none;
+  
+  @include respond-below(desktop) {
+    &--visible {
+      display: block;
+      position: fixed;
+      top: $header-height-mobile;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: calc(#{$z-index-sidebar} - 1);
+      cursor: pointer;
+    }
+  }
+}

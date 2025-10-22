@@ -4,23 +4,33 @@
 @media (prefers-color-scheme: light) {
   :root {
     --text-color: #{$light-text-color};
+    --text-muted: oklch(60% 0 0);
     --bg-color: #{$light-bg-color};
+    --card-bg: oklch(98% 0 0);
+    --border-color: oklch(85% 0 0);
     --button-bg: #{$light-button-bg};
     --button-text: #{$light-button-text};
     --primary-hover: #{$primary-hover-light};
     --doc-link-color: #{$light-doc-link};
     --code-bg: #{$light-code-bg};
+    --success-color: #10b981;
+    --error-color: #ef4444;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #{$dark-text-color};
+    --text-muted: oklch(65% 0 0);
     --bg-color: #{$dark-bg-color};
+    --card-bg: oklch(25% 0 0);
+    --border-color: oklch(35% 0 0);
     --button-bg: #{$dark-button-bg};
     --button-text: #{$dark-button-text};
     --primary-hover: #{$primary-hover-dark};
     --doc-link-color: #{$dark-doc-link};
     --code-bg: #{$dark-code-bg};
+    --success-color: #10b981;
+    --error-color: #ef4444;
   }
 }

@@ -1,0 +1,8 @@
+@function px-to-rem($px) {
+  @return $px / 16px * 1rem;
+}
+
+@function color-contrast($color) {
+  // Function to determine if color needs light or dark text
+  @return if(lightness($color) > 50%, black, white);
+}

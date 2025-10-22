@@ -1,0 +1,12 @@
+@use '../variables/colors' as *;
+
+// Force light theme (can be applied via [data-theme="light"])
+:root[data-theme="light"] {
+  --text-color: #{$light-text-color};
+  --bg-color: #{$light-bg-color};
+  --button-bg: #{$light-button-bg};
+  --button-text: #{$light-button-text};
+  --primary-hover: #{$primary-hover-light};
+  --doc-link-color: #{$light-doc-link};
+  --code-bg: #{$light-code-bg};
+}

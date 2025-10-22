@@ -1,0 +1,40 @@
+// Base brand colors (static SCSS variables)
+$primary-color: oklch(64% 0.25 264);
+$primary-hover-dark: oklch(55% 0.28 264);
+$primary-hover-light: oklch(64% 0.25 264);
+$shadow-vue: oklch(65% 0.15 160);
+
+// Dark theme colors
+$dark-text-color: oklch(85% 0 0);
+$dark-bg-color: oklch(15% 0 0);
+$dark-button-bg: oklch(10% 0 0);
+$dark-button-text: oklch(100% 0 0);
+$dark-doc-link: oklch(65% 0 0);
+$dark-code-bg: oklch(20% 0 0);
+
+// Light theme colors
+$light-text-color: oklch(25% 0.02 240);
+$light-bg-color: oklch(100% 0 0);
+$light-button-bg: oklch(97% 0 0);
+$light-button-text: oklch(15% 0 0);
+$light-doc-link: oklch(35% 0 0);
+$light-code-bg: oklch(95% 0 0);
+
+// CSS Custom Properties (for theme switching)
+:root {
+  --primary-color: #{$primary-color};
+  --shadow-vue: #{$shadow-vue};
+  
+  // Default to dark theme
+  --text-color: #{$dark-text-color};
+  --bg-color: #{$dark-bg-color};
+  --button-bg: #{$dark-button-bg};
+  --button-text: #{$dark-button-text};
+  --primary-hover: #{$primary-hover-dark};
+  --doc-link-color: #{$dark-doc-link};
+  --code-bg: #{$dark-code-bg};
+}
+
+// Effects (using static SCSS variables)
+$drop-shadow-primary: drop-shadow(0 0 2em $primary-color);
+$drop-shadow-vue: drop-shadow(0 0 2em $shadow-vue);

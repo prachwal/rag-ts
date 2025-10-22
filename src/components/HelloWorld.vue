@@ -30,13 +30,11 @@ const count = ref(0)
 </template>
 
 <style lang="scss" scoped>
-@use '@/styles/style.scss' as *;
-
 .read-the-docs {
-  color: $doc-link-color;
+  color: var(--doc-link-color);
 
   &:hover {
-    color: $shadow-vue;
+    color: var(--shadow-vue);
   }
 }
 </style>

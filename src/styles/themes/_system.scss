@@ -1,0 +1,26 @@
+@use '../variables/colors' as *;
+
+// System theme detection using prefers-color-scheme
+@media (prefers-color-scheme: light) {
+  :root {
+    --text-color: #{$light-text-color};
+    --bg-color: #{$light-bg-color};
+    --button-bg: #{$light-button-bg};
+    --button-text: #{$light-button-text};
+    --primary-hover: #{$primary-hover-light};
+    --doc-link-color: #{$light-doc-link};
+    --code-bg: #{$light-code-bg};
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #{$dark-text-color};
+    --bg-color: #{$dark-bg-color};
+    --button-bg: #{$dark-button-bg};
+    --button-text: #{$dark-button-text};
+    --primary-hover: #{$primary-hover-dark};
+    --doc-link-color: #{$dark-doc-link};
+    --code-bg: #{$dark-code-bg};
+  }
+}

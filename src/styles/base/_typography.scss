@@ -1,0 +1,25 @@
+@use '../variables' as *;
+
+:root {
+  font-family: $font-family;
+  line-height: $line-height;
+  font-weight: $font-weight-normal;
+  font-synthesis: $font-synthesis;
+  text-rendering: $text-rendering;
+  -webkit-font-smoothing: $webkit-smoothing;
+  -moz-osx-font-smoothing: $moz-smoothing;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+h1 {
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+}
+
+code {
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}

@@ -1,0 +1,23 @@
+@use '../variables' as *;
+
+button {
+  border-radius: $border-radius;
+  border: 1px solid transparent;
+  padding: $button-padding;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+
+  &:hover {
+    border-color: var(--primary-color);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+}

@@ -1,0 +1,12 @@
+@use '../variables/colors' as *;
+
+// Force dark theme (can be applied via [data-theme="dark"])
+:root[data-theme="dark"] {
+  --text-color: #{$dark-text-color};
+  --bg-color: #{$dark-bg-color};
+  --button-bg: #{$dark-button-bg};
+  --button-text: #{$dark-button-text};
+  --primary-hover: #{$primary-hover-dark};
+  --doc-link-color: #{$dark-doc-link};
+  --code-bg: #{$dark-code-bg};
+}

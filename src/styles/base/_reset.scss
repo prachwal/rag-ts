@@ -1,0 +1,13 @@
+@use '../variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: $body-margin;
+  min-width: $body-min-width;
+  min-height: $body-min-height;
+}

@@ -1,0 +1,11 @@
+@use '../variables' as *;
+
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: inherit;
+
+  &:hover {
+    color: var(--primary-hover);
+  }
+}

@@ -1,0 +1,13 @@
+@use '../variables' as *;
+
+body {
+  display: flex;
+  place-items: center;
+}
+
+#app {
+  max-width: $app-max-width;
+  margin: $app-margin;
+  padding: $app-padding;
+  text-align: center;
+}

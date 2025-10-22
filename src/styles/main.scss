@@ -1,23 +1,14 @@
 @use 'variables/index';
-
-// Themes - system is default, but also load light/dark for manual switching
+@use 'utilities/mixins' as *;
 @use 'themes/system'; // Auto-detects based on system preference
 @use 'themes/light';  // Manual light theme via data-theme="light"
 @use 'themes/dark';   // Manual dark theme via data-theme="dark"
-
-// Responsive utilities
 @use 'responsive/breakpoints';
 @use 'responsive/media-queries';
-
-// Base styles
 @use 'base/reset';
 @use 'base/typography';
-
-// Layout
 @use 'layout/app';
 @use 'layout/layout';
-
-// Components
 @use 'components/buttons';
 @use 'components/cards';
 @use 'components/links';
@@ -25,7 +16,9 @@
 @use 'components/footer';
 @use 'components/sidebar';
 @use 'components/page';
-
-// Utilities (last for highest specificity)
-@use 'utilities/mixins';
 @use 'utilities/functions';
+
+// Default theme setup
+:root {
+  @include theme(false); // Default to dark theme
+}

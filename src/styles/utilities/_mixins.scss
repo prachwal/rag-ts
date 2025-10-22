@@ -1,6 +1,8 @@
+@use '../variables/colors' as *;
+
 // Transitions
-@mixin transition($property: all, $duration: 0.25s, $ease: ease) {
-  transition: $property $duration $ease;
+@mixin transition($properties: all, $duration: 0.3s, $timing: ease) {
+  transition: $properties $duration $timing;
 }
 
 // Drop shadow
@@ -159,4 +161,78 @@
   &:focus {
     top: 0;
   }
+}
+
+// Theme variables mixin
+@mixin theme-variables($text-color, $text-muted, $bg-color, $bg-secondary, $bg-tertiary, $card-bg, $border-color, $button-bg, $button-text, $button-hover-bg, $doc-link-color, $link-hover-color, $code-bg, $code-text, $primary-hover) {
+  // Text colors
+  --text-color: #{$text-color};
+  --text-muted: #{$text-muted};
+  --text-accent: #{colors.$primary-color};
+
+  // Background colors
+  --bg-color: #{$bg-color};
+  --bg-secondary: #{$bg-secondary};
+  --bg-tertiary: #{$bg-tertiary};
+  --card-bg: #{$card-bg};
+  --border-color: #{$border-color};
+
+  // Button colors
+  --button-bg: #{$button-bg};
+  --button-text: #{$button-text};
+  --button-hover-bg: #{$button-hover-bg};
+
+  // Link colors
+  --doc-link-color: #{$doc-link-color};
+  --link-hover-color: #{$link-hover-color};
+
+  // Code colors
+  --code-bg: #{$code-bg};
+  --code-text: #{$code-text};
+
+  // Primary colors
+  --primary-color: #{colors.$primary-color};
+  --primary-hover: #{$primary-hover};
+  --shadow-vue: #{colors.$shadow-vue};
+}
+
+// New theme mixin to reduce duplication
+@mixin theme($light: false) {
+  @if $light {
+    --text-color: #{$light-text-color};
+    --text-muted: oklch(45% 0 0);
+    --bg-color: #{$light-bg-color};
+    --bg-secondary: oklch(90% 0 0);
+    --bg-tertiary: oklch(98% 0 0);
+    --card-bg: oklch(85% 0 0);
+    --border-color: oklch(90% 0 0);
+    --button-bg: #{$light-button-bg};
+    --button-text: #{$light-button-text};
+    --button-hover-bg: oklch(90% 0 0);
+    --doc-link-color: #{$light-doc-link};
+    --link-hover-color: oklch(35% 0.1 264);
+    --code-bg: #{$light-code-bg};
+    --code-text: oklch(25% 0 0);
+    --primary-hover: #{$primary-hover-light};
+  } @else {
+    --text-color: #{$dark-text-color};
+    --text-muted: oklch(65% 0 0);
+    --bg-color: #{$dark-bg-color};
+    --bg-secondary: oklch(20% 0 0);
+    --bg-tertiary: oklch(25% 0 0);
+    --card-bg: oklch(18% 0 0);
+    --border-color: oklch(30% 0 0);
+    --button-bg: #{$dark-button-bg};
+    --button-text: #{$dark-button-text};
+    --button-hover-bg: oklch(25% 0 0);
+    --doc-link-color: #{$dark-doc-link};
+    --link-hover-color: oklch(75% 0.1 264);
+    --code-bg: #{$dark-code-bg};
+    --code-text: oklch(90% 0 0);
+    --primary-hover: #{$primary-hover-dark};
+  }
+  // Static properties
+  --text-accent: #{$primary-color};
+  --primary-color: #{$primary-color};
+  --shadow-vue: #{$shadow-vue};
 }

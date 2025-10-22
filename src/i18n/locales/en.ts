@@ -51,7 +51,18 @@ export default {
     feature4: 'Vue i18n for internationalization',
     feature5: 'Theme switcher (light/dark/system)',
     feature6: 'TypeScript for type safety',
-    feature7: 'Language switcher (Polish/English)'
+    feature7: 'Language switcher (Polish/English)',
+    techStack: 'Technology Stack',
+    frontend: 'Frontend',
+    frontendDesc: 'Vue 3, TypeScript, Vite',
+    routing: 'Routing',
+    routingDesc: 'Vue Router 4',
+    state: 'State',
+    stateDesc: 'Pinia',
+    i18n: 'i18n',
+    i18nDesc: 'Vue i18n 9',
+    styling: 'Styling',
+    stylingDesc: 'SCSS, CSS Custom Properties, OKLCH'
   },
   privacy: {
     title: 'Privacy Policy',

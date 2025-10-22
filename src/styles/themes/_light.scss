@@ -1,17 +1,7 @@
 @use '../variables/colors' as *;
+@use '../utilities/mixins' as *;
 
 // Force light theme (can be applied via [data-theme="light"])
 :root[data-theme="light"] {
-  --text-color: #{$light-text-color};
-  --text-muted: oklch(45% 0 0);
-  --bg-color: #{$light-bg-color};
-  --card-bg: oklch(98% 0 0);
-  --border-color: oklch(85% 0 0);
-  --button-bg: #{$light-button-bg};
-  --button-text: #{$light-button-text};
-  --primary-hover: #{$primary-hover-light};
-  --doc-link-color: #{$light-doc-link};
-  --code-bg: #{$light-code-bg};
-  --success-color: #10b981;
-  --error-color: #ef4444;
+  @include theme(true);
 }

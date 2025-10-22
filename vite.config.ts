@@ -17,4 +17,20 @@ export default defineConfig({
     __APP_VERSION__: JSON.stringify(packageJson.version),
     __APP_HOMEPAGE__: JSON.stringify(packageJson.homepage),
   },
+  css: {
+    devSourcemap: false, // Disable sourcemaps in dev for better performance
+  },
+  build: {
+    cssCodeSplit: true, // Enable CSS code splitting
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          // Vendor chunk for node_modules
+          if (id.includes('node_modules')) {
+            return 'vendor'
+          }
+        },
+      },
+    },
+  },
 })

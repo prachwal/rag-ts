@@ -21,38 +21,4 @@ $light-doc-link: oklch(35% 0 0);
 $light-code-bg: oklch(95% 0 0);
 
 // CSS Custom Properties (for theme switching)
-:root {
-  // Colors
-  --primary-color: #{$primary-color};
-  --primary-hover: #{$primary-hover-dark};
-  --shadow-vue: #{$shadow-vue};
-
-  // Text colors
-  --text-color: #{$dark-text-color};
-  --text-muted: oklch(65% 0 0);
-  --text-accent: #{$primary-color};
-
-  // Background colors
-  --bg-color: #{$dark-bg-color};
-  --bg-secondary: oklch(20% 0 0);
-  --bg-tertiary: oklch(25% 0 0);
-  --card-bg: oklch(18% 0 0);
-  --border-color: oklch(30% 0 0);
-
-  // Button colors
-  --button-bg: #{$dark-button-bg};
-  --button-text: #{$dark-button-text};
-  --button-hover-bg: oklch(25% 0 0);
-
-  // Link colors
-  --doc-link-color: #{$dark-doc-link};
-  --link-hover-color: oklch(75% 0.1 264);
-
-  // Code colors
-  --code-bg: #{$dark-code-bg};
-  --code-text: oklch(90% 0 0);
-}
-
-// Effects (using static SCSS variables)
-$drop-shadow-primary: drop-shadow(0 0 2em $primary-color);
-$drop-shadow-vue: drop-shadow(0 0 2em $shadow-vue);
+// Default theme is set in main.scss

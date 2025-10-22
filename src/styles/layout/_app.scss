@@ -1,4 +1,5 @@
 @use '../variables' as *;
+@use '../utilities/mixins' as *;
 
 body {
 }
@@ -8,4 +9,9 @@ body {
   margin: $app-margin;
   padding: $app-padding;
   text-align: center;
+}
+
+// Skip link for accessibility
+.skip-link {
+  @include skip-link;
 }

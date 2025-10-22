@@ -135,3 +135,28 @@
     }
   }
 }
+
+// Focus ring for accessibility
+@mixin focus-ring($color: var(--primary-color), $offset: 2px, $width: 2px) {
+  outline: $width solid $color;
+  outline-offset: $offset;
+  border-radius: var(--border-radius);
+}
+
+// Skip link styles
+@mixin skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: var(--button-text);
+  padding: 8px var(--spacing-md);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  z-index: var(--z-tooltip);
+  font-weight: var(--font-weight-medium);
+  
+  &:focus {
+    top: 0;
+  }
+}

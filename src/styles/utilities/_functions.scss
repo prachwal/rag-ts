@@ -1,8 +1,38 @@
-@function px-to-rem($px) {
-  @return $px / 16px * 1rem;
+// Breakpoint functions
+@function breakpoint($name) {
+  $breakpoints: (
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    2xl: 1536px
+  );
+  
+  @return map-get($breakpoints, $name);
 }
 
-@function color-contrast($color) {
-  // Function to determine if color needs light or dark text
-  @return if(lightness($color) > 50%, black, white);
+// Color functions
+@function rgba($color, $alpha) {
+  @return rgba($color, $alpha);
+}
+
+// Spacing functions
+@function spacing($multiplier) {
+  @return $multiplier * 1rem;
+}
+
+// Z-index function
+@function z($layer) {
+  $z-layers: (
+    dropdown: 1000,
+    sticky: 1020,
+    header: 1030,
+    sidebar: 1040,
+    overlay: 1050,
+    modal: 1060,
+    tooltip: 1070,
+    toast: 1080
+  );
+  
+  @return map-get($z-layers, $layer);
 }

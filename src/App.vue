@@ -20,6 +20,9 @@ const handleCloseSidebar = () => {
 
 <template>
   <div class="app-layout">
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <AppHeader 
       @toggle-sidebar="handleToggleSidebar"
     />
@@ -29,7 +32,7 @@ const handleCloseSidebar = () => {
       @close="handleCloseSidebar"
     />
     
-    <main class="app-layout__main">
+    <main id="main-content" class="app-layout__main" role="main">
       <router-view />
     </main>
     

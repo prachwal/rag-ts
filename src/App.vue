@@ -15,7 +15,7 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style scoped lang="scss">
-@use 'variables.scss' as *;
+@use '@/styles/style.scss' as *;
 // SCSS variables for logo effects
 
 .logo {
